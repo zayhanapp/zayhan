@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  /* Pure Black Liquid Glass Theme */
+  html.dark,
+  html.dark body {
+    background-color: #030305 !important;
+    color: #F4F4F5 !important;
+    color-scheme: dark;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Luxurious Rich Warm Creamish Light Theme */
+  html.light,
+  html.light body {
+    background-color: #F3ECE2 !important;
+    color: #1C1917 !important;
+    color-scheme: light;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* DARK THEME STYLING                                   */
+/* ---------------------------------------------------- */
+html.dark .glass-panel {
+  background: rgba(14, 14, 20, 0.72) !important;
+  backdrop-filter: blur(24px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 12px 36px -4px rgba(0, 0, 0, 0.75) !important;
+  color: #F4F4F5 !important;
+}
+
+html.dark .glass-input {
+  background: rgba(22, 22, 30, 0.8) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  transition: all 0.2s ease;
+}
+
+html.dark .glass-input:focus {
+  background: rgba(28, 28, 40, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  outline: none;
+}
+
+/* ---------------------------------------------------- */
+/* WARM CREAMISH LIGHT THEME STYLING                   */
+/* ---------------------------------------------------- */
+html.light .glass-panel {
+  background: rgba(252, 248, 241, 0.88) !important;
+  backdrop-filter: blur(24px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
+  border: 1px solid rgba(212, 199, 180, 0.75) !important;
+  box-shadow: 0 10px 30px -4px rgba(60, 48, 32, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  color: #1C1917 !important;
+}
+
+html.light .glass-input {
+  background: #FAF5ED !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid #D5C8B4 !important;
+  color: #1C1917 !important;
+  transition: all 0.2s ease;
+}
+
+html.light .glass-input:focus {
+  background: #FFFFFF !important;
+  border-color: #292524 !important;
+  box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.08) !important;
+  outline: none;
+}
+
+/* Cream Light Mode Text & Hierarchy */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light .text-white {
+  color: #1C1917 !important;
+}
+
+html.light .text-zinc-100,
+html.light .text-zinc-200 {
+  color: #292524 !important;
+}
+
+html.light .text-zinc-300,
+html.light .text-zinc-400 {
+  color: #575047 !important;
+}
+
+html.light .text-zinc-500 {
+  color: #796F63 !important;
+}
+
+html.light .text-zinc-600 {
+  color: #A39788 !important;
+}
+
+/* Buttons in Cream Light Mode - Highly visible & tactile */
+html.light .bg-white\/5 {
+  background-color: rgba(45, 38, 30, 0.05) !important;
+}
+
+html.light .bg-white\/10 {
+  background-color: rgba(45, 38, 30, 0.08) !important;
+}
+
+html.light .bg-white\/15,
+html.light .bg-white\/20 {
+  background-color: rgba(45, 38, 30, 0.13) !important;
+}
+
+html.light .hover\:bg-white\/10:hover {
+  background-color: rgba(45, 38, 30, 0.10) !important;
+}
+
+html.light .hover\:bg-white\/20:hover {
+  background-color: rgba(45, 38, 30, 0.18) !important;
+}
+
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/15 {
+  border-color: rgba(195, 180, 160, 0.55) !important;
+}
+
+/* Primary white buttons in light mode invert for crisp contrast */
+html.light button.bg-white:not(.no-invert) {
+  background-color: #1C1917 !important;
+  color: #FAF5ED !important;
+}
+
+html.light button.bg-white:hover:not(.no-invert) {
+  background-color: #2D2722 !important;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(120, 113, 108, 0.25);
+  border-radius: 9999px;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 113, 108, 0.4);
+}
