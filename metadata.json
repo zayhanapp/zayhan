@@ -1,0 +1,8 @@
+{
+  "name": "zayhan",
+  "description": "A minimalist, futuristic personal productivity suite with liquid glass aesthetic, featuring a distraction-free clock, persistent to-do manager, autosaving scratchpad, PDF study workspace with IndexedDB, and daily streaks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

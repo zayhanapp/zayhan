@@ -1,0 +1,101 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Authenticated user profile and streak metrics",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string", "maxLength": 64 },
+        "handle": { "type": "string", "maxLength": 64 },
+        "email": { "type": "string", "maxLength": 128 },
+        "photoURL": { "type": "string", "maxLength": 512 },
+        "currentStreak": { "type": "number" },
+        "longestStreak": { "type": "number" },
+        "lastVisitDate": { "type": "string", "maxLength": 16 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["displayName", "currentStreak", "longestStreak", "lastVisitDate"]
+    },
+    "Task": {
+      "title": "User Task",
+      "description": "Personal to-do item",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "text": { "type": "string", "maxLength": 500 },
+        "completed": { "type": "boolean" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["userId", "text", "completed", "createdAt"]
+    },
+    "Note": {
+      "title": "User Scratchpad Note",
+      "description": "Personal scratchpad content",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "content": { "type": "string", "maxLength": 50000 },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "content", "updatedAt"]
+    },
+    "Material": {
+      "title": "Study Material Metadata",
+      "description": "Metadata and study notes for local or Drive PDFs",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "filename": { "type": "string", "maxLength": 256 },
+        "fileSize": { "type": "number" },
+        "uploadedAt": { "type": "string", "maxLength": 64 },
+        "connectionString": { "type": "string", "maxLength": 64 },
+        "studyNotes": { "type": "string", "maxLength": 50000 },
+        "source": { "type": "string", "enum": ["local", "drive"] },
+        "driveFileId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["userId", "filename", "connectionString", "source"]
+    },
+    "Friendship": {
+      "title": "Friendship Connection",
+      "description": "Two-way friendship request and relationship record",
+      "type": "object",
+      "properties": {
+        "user1Id": { "type": "string", "maxLength": 128 },
+        "user2Id": { "type": "string", "maxLength": 128 },
+        "user1Username": { "type": "string", "maxLength": 64 },
+        "user2Username": { "type": "string", "maxLength": 64 },
+        "status": { "type": "string", "enum": ["pending", "accepted", "declined"] },
+        "senderId": { "type": "string", "maxLength": 128 },
+        "sharedNote": { "type": "string", "maxLength": 50000 },
+        "sharedNoteAuthor": { "type": "string", "maxLength": 64 },
+        "sharedNoteUpdatedAt": { "type": "number" },
+        "sharedDocs": { "type": "string", "maxLength": 50000 },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["user1Id", "user2Id", "status", "senderId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and public streaks"
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": "Task",
+      "description": "User's private tasks"
+    },
+    "/users/{userId}/notes/{noteId}": {
+      "schema": "Note",
+      "description": "User's private scratchpad note"
+    },
+    "/users/{userId}/materials/{materialId}": {
+      "schema": "Material",
+      "description": "User's study material metadata and notes"
+    },
+    "/friends/{friendshipId}": {
+      "schema": "Friendship",
+      "description": "Friendship requests and connections between users"
+    }
+  }
+}
